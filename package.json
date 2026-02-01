@@ -2,15 +2,18 @@
   "name": "iot-project",
   "version": "0.1.0",
   "private": true,
+
   "engines": {
     "node": "18.x"
   },
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
@@ -49,7 +52,7 @@
     "embla-carousel-react": "8.5.1",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
-    "next": "14.2.5",
+    "next": "14.2.24",
     "next-themes": "^0.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -63,13 +66,14 @@
     "vaul": "^1.1.2",
     "zod": "3.25.76"
   },
+
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^18",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5",
+    "eslint-config-next": "14.2.24",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
