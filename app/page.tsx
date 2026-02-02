@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
@@ -15,10 +17,7 @@ import {
   Wind,
   AlertTriangle,
   Cpu,
-  Radio,
-  Shield,
   ArrowRight,
-  Wifi,
   Users,
 } from "lucide-react"
 
@@ -61,11 +60,11 @@ const hardware = [
 ]
 
 const teamMembers = [
-  { name: "Swastik Bhattacharya" },
-  { name: "Subham Das" },
-  { name: "Sujan Manna" },
-  { name: "Suman Bera"},
-  { name: "Tanay Jana"},
+  { name: "Swastik Bhattacharya", roll: "16900323174" },
+  { name: "Subham Das", roll: "16900323157" },
+  { name: "Sujan Manna", roll: "16900323162" },
+  { name: "Suman Bera", roll: "16900323163" },
+  { name: "Tanay Jana", roll: "16900323176" },
 ]
 
 /* ===================== PAGE ===================== */
@@ -98,19 +97,26 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button asChild size="lg">
-                  <Link href="/dashboard">
+                <Link href="/dashboard">
+                  <Button
+                    size="lg"
+                    className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
+                  >
                     <Activity className="mr-2 h-5 w-5" />
                     Live Monitoring
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
 
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/project">
+                <Link href="/project">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="transition-all duration-300 hover:border-primary hover:text-primary hover:scale-105"
+                  >
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -130,7 +136,10 @@ export default function HomePage() {
               {features.map((feature) => {
                 const Icon = feature.icon
                 return (
-                  <Card key={feature.title}>
+                  <Card
+                    key={feature.title}
+                    className="transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-xl hover:shadow-primary/20"
+                  >
                     <CardHeader>
                       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                         <Icon className="h-6 w-6 text-primary" />
@@ -138,9 +147,7 @@ export default function HomePage() {
                       <CardTitle>{feature.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription>
-                        {feature.description}
-                      </CardDescription>
+                      <CardDescription>{feature.description}</CardDescription>
                     </CardContent>
                   </Card>
                 )
@@ -161,7 +168,10 @@ export default function HomePage() {
 
             <div className="mx-auto max-w-3xl grid grid-cols-2 md:grid-cols-3 gap-4">
               {hardware.map((item) => (
-                <Card key={item.name}>
+                <Card
+                  key={item.name}
+                  className="transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-primary/20"
+                >
                   <CardContent className="p-4 text-center">
                     <div className="text-lg font-semibold text-primary">
                       {item.name}
@@ -189,19 +199,30 @@ export default function HomePage() {
               </p>
             </div>
 
-                        <div className="mx-auto max-w-3xl grid gap-6 sm:grid-cols-2">
+            <div className="mx-auto max-w-3xl grid gap-6 sm:grid-cols-2">
               {teamMembers.map((member, index) => (
                 <Card
                   key={member.name}
-                  className={
-                    index === teamMembers.length - 1 && teamMembers.length % 2 !== 0
-                      ? "sm:col-span-2 sm:flex sm:justify-center"
-                      : ""
-                  }
+                  className={`
+                    h-32
+                    transition-all duration-300
+                    hover:-translate-y-2
+                    hover:border-primary
+                    hover:shadow-xl
+                    hover:shadow-primary/30
+                    ${
+                      index === teamMembers.length - 1
+                        ? "sm:col-span-2 sm:mx-auto sm:w-[calc(50%-0.75rem)]"
+                        : ""
+                    }
+                  `}
                 >
-                  <CardContent className="h-28 flex items-center justify-center">
-                    <span className="text-lg font-semibold text-center">
+                  <CardContent className="flex h-full flex-col items-center justify-center text-center">
+                    <span className="text-lg font-semibold">
                       {member.name}
+                    </span>
+                    <span className="text-sm text-muted-foreground mt-1">
+                      Roll No: {member.roll}
                     </span>
                   </CardContent>
                 </Card>
@@ -221,12 +242,15 @@ export default function HomePage() {
               View real-time health data and alerts from the live dashboard.
             </p>
 
-            <Button asChild size="lg">
-              <Link href="/dashboard">
+            <Link href="/dashboard">
+              <Button
+                size="lg"
+                className="transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-primary/30"
+              >
                 <Activity className="mr-2 h-5 w-5" />
                 Open Live Dashboard
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </section>
       </main>
@@ -243,9 +267,13 @@ export default function HomePage() {
             </span>
           </div>
 
-          <p className="text-sm text-muted-foreground">
-            Final Year Engineering Project – ECE
-          </p>
+          <p className="text-sm text-muted-foreground text-center md:text-right">
+  Final Year Engineering Project – ECE<br />
+  <span className="text-xs">
+    Subject Code: <span className="text-primary font-medium">EC782</span>
+  </span>
+</p>
+
         </div>
       </footer>
     </div>
