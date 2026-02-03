@@ -18,7 +18,7 @@ import {
 } from "lucide-react"
 
 const objectives = [
-  "Design and develop a wearable IoT device for real-time health monitoring of sanitation workers.",
+  "Design and develop a IoT device for real-time health monitoring of sanitation workers.",
   "Implement sensors for heart rate, body temperature, gas levels, and fall detection.",
   "Establish GSM-based communication for instant SMS alerts to supervisors and emergency contacts.",
   "Create a web-based dashboard for centralized monitoring and data visualization.",
